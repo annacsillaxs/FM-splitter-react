@@ -1,0 +1,12 @@
+@import "../utils/vars.css";
+
+.header {
+  background-color: var(--neutral-light--1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo {
+  margin: 3rem;
+}

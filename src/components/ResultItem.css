@@ -1,0 +1,29 @@
+@import "../utils/vars.css";
+
+.item__container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.item__text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item__title {
+  color: var(--neutral-light--1);
+  font-weight: 700;
+}
+
+.item__small {
+  color: var(--neutral-medium--2);
+  font-weight: 700;
+}
+
+.item__amount {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+}

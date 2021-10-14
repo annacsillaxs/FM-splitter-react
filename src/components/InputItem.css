@@ -1,0 +1,14 @@
+.form {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.form__label {
+  margin-bottom: 0.5rem;
+}
+
+.form__icon {
+  position: absolute;
+  bottom: calc((56px - 17px) / 2);
+  left: 1rem;
+}

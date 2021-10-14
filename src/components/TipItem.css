@@ -1,0 +1,20 @@
+.form--tip {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.form--tip__label {
+  margin-bottom: 0.5rem;
+}
+
+.form--tip__icon {
+  position: absolute;
+  bottom: 13.5px;
+  left: 1rem;
+}
+
+.form--tip__btn-container {
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 0.5rem));
+  gap: 1rem;
+}
