@@ -10,6 +10,8 @@
 
   --white: hsl(0, 0%, 100%);
 
+  --error: rgb(243, 70, 39);
+
   --primary-fontSize: 24px;
   --border-radius--small: 3px;
   --border-radius--medium: 15px;

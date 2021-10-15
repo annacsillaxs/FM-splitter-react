@@ -45,6 +45,10 @@ input:hover {
   cursor: pointer;
 }
 
+input.error {
+  border-color: var(--error);
+}
+
 form {
   display: flex;
   flex-direction: column;

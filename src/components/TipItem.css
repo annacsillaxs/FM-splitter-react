@@ -14,7 +14,14 @@
 }
 
 .form--tip__btn-container {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, calc(50% - 0.5rem));
   gap: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .form--tip__btn-container {
+    grid-template-columns: repeat(3, calc((100% - 1.8rem) / 3));
+  }
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-import './ResultItem.css'
+import React from "react";
+import "./ResultItem.css";
 
 const ResultItem = (props) => {
   return (
@@ -8,9 +8,9 @@ const ResultItem = (props) => {
         <p className="item__title">{props.data.title}</p>
         <small className="item__small">{props.data.small}</small>
       </div>
-      <div className="item__amount">${props.data.value}</div>
+      <div className="item__amount">${props.finalAmount}</div>
     </div>
-  )
-}
+  );
+};
 
-export default ResultItem
+export default ResultItem;

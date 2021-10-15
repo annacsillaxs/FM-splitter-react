@@ -12,3 +12,16 @@
   bottom: calc((56px - 17px) / 2);
   left: 1rem;
 }
+
+.form__error {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  color: var(--error);
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+
+.form__error.visible {
+  opacity: 1;
+}
