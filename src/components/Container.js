@@ -45,10 +45,6 @@ const Container = () => {
         ? (btn.className = "btn default")
         : (btn.className = "btn")
     );
-
-    if (enteredTip === "") {
-      setActive("15");
-    }
   }, [active, enteredTip]);
 
   // for tip selector buttons
@@ -62,8 +58,6 @@ const Container = () => {
     setEnteredTip(e.target.value);
     setActive(e.target.value);
   };
-
-  console.log(enteredTip);
 
   // for bill value input
   const inputValueChangeHandler = (e) => {
