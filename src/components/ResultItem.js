@@ -5,10 +5,10 @@ const ResultItem = (props) => {
   return (
     <div className="item__container">
       <div className="item__text-box">
-        <p className="item__title">{props.data.title}</p>
-        <small className="item__small">{props.data.small}</small>
+        <h2 className="item__title">{props.data.title}</h2>
+        <p className="item__small">{props.data.small}</p>
       </div>
-      <div className="item__amount">${props.finalAmount}</div>
+      <p className="item__amount">${props.finalAmount}</p>
     </div>
   );
 };

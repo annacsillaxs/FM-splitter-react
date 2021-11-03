@@ -1,19 +1,25 @@
-.form--tip {
+.fieldset--tip {
   margin: 1rem 0;
   width: 100%;
+  max-width: 1000px;
+  grid-area: tip;
 }
 
-.form--tip__label {
+.fieldset--tip__input.active {
+  background-color: var(--primary-color);
+}
+
+.fieldset--tip__label {
   margin-bottom: 0.5rem;
 }
 
-.form--tip__icon {
+.fieldset--tip__icon {
   position: absolute;
   bottom: 13.5px;
   left: 1rem;
 }
 
-.form--tip__btn-container {
+.fieldset--tip__btn-container {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, calc(50% - 0.5rem));
@@ -21,7 +27,7 @@
 }
 
 @media (min-width: 1000px) {
-  .form--tip__btn-container {
-    grid-template-columns: repeat(3, calc((100% - 1.8rem) / 3));
+  .fieldset--tip__btn-container {
+    grid-template-columns: repeat(3, calc((100% / 3) - 1.5rem));
   }
 }

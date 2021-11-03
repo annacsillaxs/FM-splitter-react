@@ -1,27 +1,33 @@
-.form {
+.fieldset {
   margin: 1rem 0;
+  width: 100%;
+  position: relative;
+}
+
+.fieldset__label {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.fieldset__input {
   width: 100%;
 }
 
-.form__label {
-  margin-bottom: 0.5rem;
-}
-
-.form__icon {
+.fieldset__icon {
   position: absolute;
   bottom: calc((56px - 17px) / 2);
   left: 1rem;
 }
 
-.form__error {
+.fieldset__error {
   position: absolute;
   right: 0;
   top: 0.5rem;
   color: var(--error);
-  opacity: 0;
+  opacity: 1;
   transition: all 0.2s linear;
 }
 
-.form__error.visible {
+.fieldset__error.visible {
   opacity: 1;
 }

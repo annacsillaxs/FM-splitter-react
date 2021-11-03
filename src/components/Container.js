@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Container.css";
 import InputItem from "./InputItem";
 import TipItem from "./TipItem";
@@ -7,28 +7,39 @@ import ResultContainer from "./ResultContainer";
 const data = {
   bill: {
     name: "bill",
+    label: "Bill",
     type: "number",
     icon: "../images/icon-dollar.svg",
-    label: "Bill",
-    error: "",
-    value: "142.55",
+    error: "Can't be negative",
+    value: "0",
     min: "0",
   },
   people: {
     name: "people",
+    label: "Number of People",
     type: "number",
     icon: "../images/icon-person.svg",
-    label: "Number of People",
     error: "Can't be zero",
-    value: "5",
+    value: "1",
     min: "1",
+  },
+};
+
+const data_result = {
+  tip: {
+    title: "Tip Amount",
+    small: "/ person",
+  },
+  total: {
+    title: "Total",
+    small: "/ person",
   },
 };
 
 const Container = () => {
   // for input items
-  const [enteredValue, setEnteredValue] = useState("142.55");
-  const [enteredPeople, setEnteredPeople] = useState("5");
+  const [enteredValue, setEnteredValue] = useState(0);
+  const [enteredPeople, setEnteredPeople] = useState(1);
 
   // for tip selector buttons
   const [active, setActive] = useState("15");
@@ -37,19 +48,15 @@ const Container = () => {
   const [enteredTip, setEnteredTip] = useState("");
 
   // for tip selector buttons
-  useEffect(() => {
-    const btnArr = document.querySelectorAll(".btn");
-
-    btnArr.forEach((btn) =>
-      btn.innerText.split("%")[0] === active
-        ? (btn.className = "btn default")
-        : (btn.className = "btn")
-    );
-  }, [active, enteredTip]);
-
-  // for tip selector buttons
   const activeButtonHandler = (e) => {
-    const clicked = e.target.innerText.split("%")[0];
+    let clicked = e.target;
+
+    if (clicked.id !== "") {
+      clicked = e.target.value;
+    } else {
+      clicked = e.target.innerText.split("%")[0];
+    }
+
     setActive(clicked);
   };
 
@@ -62,22 +69,11 @@ const Container = () => {
   // for bill value input
   const inputValueChangeHandler = (e) => {
     setEnteredValue(e.target.value);
-    console.log(enteredValue);
   };
 
   // for people's number input
   const inputPeopleChangeHandler = (e) => {
     setEnteredPeople(e.target.value);
-
-    const errorMsgArr = document.querySelectorAll(".form__error");
-
-    if (e.target.value < 1) {
-      e.target.classList.add("error");
-      errorMsgArr[1].classList.add("visible");
-    } else {
-      e.target.classList.remove("error");
-      errorMsgArr[1].classList.remove("visible");
-    }
   };
 
   const formSubmissionHandler = (e) => {
@@ -85,8 +81,8 @@ const Container = () => {
   };
 
   const resetBtnHandler = () => {
-    setEnteredValue("142.55");
-    setEnteredPeople("5");
+    setEnteredValue(0);
+    setEnteredPeople(1);
     setActive("15");
     setEnteredTip("");
   };
@@ -96,33 +92,35 @@ const Container = () => {
   const totalAmount = (+tipAmount + +enteredValue / +enteredPeople).toFixed(2);
 
   return (
-    <div className="container">
-      <section className="container__top">
-        <InputItem
-          data={data.bill}
-          changeHandler={inputValueChangeHandler}
-          value={enteredValue}
-          onSubmit={formSubmissionHandler}
-        />
-        <TipItem
-          onClickHandler={activeButtonHandler}
-          onChangeHandler={inputChangeHandler}
-          value={enteredTip}
-          onSubmit={formSubmissionHandler}
-        />
-        <InputItem
-          data={data.people}
-          changeHandler={inputPeopleChangeHandler}
-          value={enteredPeople}
-          onSubmit={formSubmissionHandler}
-        />
-      </section>
+    <form className="container" onSubmit={formSubmissionHandler}>
+      <InputItem
+        onChange={inputValueChangeHandler}
+        value={enteredValue}
+        placeholder={enteredValue}
+        data={data.bill}
+      />
+
+      <TipItem
+        value={enteredTip}
+        onChange={inputChangeHandler}
+        onClickHandler={activeButtonHandler}
+        activeBtn={active}
+      />
+
+      <InputItem
+        onChange={inputPeopleChangeHandler}
+        value={enteredPeople}
+        placeholder={enteredPeople}
+        data={data.people}
+      />
+
       <ResultContainer
+        data={data_result}
         tipAmount={tipAmount}
         totalAmount={totalAmount}
         onReset={resetBtnHandler}
       />
-    </div>
+    </form>
   );
 };
 
