@@ -87,6 +87,7 @@ const Container = () => {
     setEnteredTip("");
   };
 
+  // calculate tipAmount and totalAmount
   const tipAmount = ((enteredValue * active) / 100 / enteredPeople).toFixed(2);
 
   const totalAmount = (+tipAmount + +enteredValue / +enteredPeople).toFixed(2);
