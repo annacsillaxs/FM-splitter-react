@@ -88,9 +88,14 @@ const Container = () => {
   };
 
   // calculate tipAmount and totalAmount
-  const tipAmount = ((enteredValue * active) / 100 / enteredPeople).toFixed(2);
+  let tipAmount = ((enteredValue * active) / 100 / enteredPeople).toFixed(2);
 
-  const totalAmount = (+tipAmount + +enteredValue / +enteredPeople).toFixed(2);
+  let totalAmount = (+tipAmount + +enteredValue / +enteredPeople).toFixed(2);
+
+  if (enteredValue < 0 || enteredPeople < 1) {
+    tipAmount = (0).toFixed(2);
+    totalAmount = (0).toFixed(2);
+  }
 
   return (
     <form className="container" onSubmit={formSubmissionHandler}>
